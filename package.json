@@ -1,0 +1,26 @@
+{
+  "name": "xiv-testing-js",
+  "version": "1.0.0",
+  "description": "Aprenderemos a testear código JS",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jbaysi@github.com/KeepCodingWeb14/testing-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KeepCodingWeb14/testing-js/issues"
+  },
+  "homepage": "https://github.com/KeepCodingWeb14/testing-js#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
