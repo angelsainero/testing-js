@@ -1,4 +1,4 @@
-const suma = require("./suma")
+import suma from "./suma"
 describe("funcion suma", () => {
     it("suma de valores 0 y 0 es 0", () => {
         expect(suma(0,0)).toBe(0)
