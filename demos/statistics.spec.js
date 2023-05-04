@@ -14,6 +14,7 @@ describe("Testing funcion avg", () => {
         expect(avg([0])).toBeGreaterThanOrEqual(0)
         expect(avg([0,1])).toBeGreaterThanOrEqual(0)
         expect(avg([0,1,9389848,938483853988989348])).toBeGreaterThanOrEqual(0)
+        expect(avg([0,1,2])).toBePositive()
     })
 })
 
