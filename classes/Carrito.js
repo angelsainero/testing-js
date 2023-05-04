@@ -6,4 +6,7 @@ module.exports = class Carrito {
     addItem(item) {
         this.items.push(item)
     }
+    getTotalCheckout() {
+        return this.items.reduce((prev, curr) => prev += curr.price, 0)
+    }
 }
