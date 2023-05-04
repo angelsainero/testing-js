@@ -24,8 +24,12 @@ describe("funcion suma", () => {
         it("sumar 1 y 2 es mayor o igual que 3", () => {
             expect(suma(1,2)).toBeGreaterThanOrEqual(3)
         })
-        it.todo("sumar 1 y 2 es menor que 4")
-        it.todo("sumar 1 y 2 es menor o igual que 3")
+        it("sumar 1 y 2 es menor que 4", () => {
+            expect(suma(1,2)).toBeLessThan(4)
+        })
+        it("sumar 1 y 2 es menor o igual que 3", () => {
+            expect(suma(1,2)).toBeLessThanOrEqual(3)
+        })
         //toBeTruthy() es lo mismo que toBe(true)
         
 
@@ -44,7 +48,9 @@ describe("funcion suma", () => {
         })
     })
     describe("sumar valores positivos y negativos", () => {
-        it.todo("sumar 1 y -1 es 0")
+        it("sumar 1 y -1 es 0", () => {
+            expect(suma(-1, 1)).toEqual(0)
+        })
 
     })
 })
