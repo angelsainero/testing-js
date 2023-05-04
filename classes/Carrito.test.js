@@ -23,8 +23,17 @@ describe('Testing class Carrito', () => {
             carrito.addItem(nigiriItem)
             expect(carrito.getTotalItems()).toBe(2)
         })
+        afterEach(() => {
+            carrito = undefined
+        })
     })
     describe('Testing addItem', () => {
-        it.todo('should contain the added item in carrito.items array')
+        it('should contain the added item in carrito.items array', () => {
+            carrito.addItem(nigiriItem)
+            expect(carrito.items).toContainEqual(nigiriItem)
+        })
+        it('should not contain an empty object when not adding an item', () => {
+            expect(carrito.items).not.toContain({})
+        })
     })
 })
