@@ -39,6 +39,32 @@ describe('Testing class Carrito', () => {
         it('should not contain an empty object when not adding an item', () => {
             expect(carrito.items).not.toContain({})
         })
+        it('should throw an error if an item has no price', () => {
+            expect(() => carrito.addItem({})).toThrow()
+            // No funciona así, debemos pasarle un callback!!
+            // expect(carrito.addItem('foo')).toThrow()
+            expect(() => carrito.addItem('foo')).toThrow()
+        })
+        it('should throw an error if the item is not an object', () => {
+            expect(() => carrito.addItem('foo')).toThrow()
+            expect(() => carrito.addItem(true)).toThrow()
+            expect(() => carrito.addItem(undefined)).toThrow()
+            expect(() => carrito.addItem()).toThrow()
+        })
+        it('should throw an error when item is not an object saying "item must be an object"', () => {
+            expect(() => carrito.addItem('foo')).toThrow('item must be an object')
+            expect(() => carrito.addItem(true)).toThrow('item must be an object')
+            expect(() => carrito.addItem(undefined)).toThrow('item must be an object')
+            expect(() => carrito.addItem()).toThrow('item must be an object')
+        })
+        it('should throw an error saying "item must be an object with price and name" when adding non standard items objects', () => {
+            // item standard === {name: '', price: 0}
+            expect(() => carrito.addItem({})).toThrow('item must be an object with price and name')
+            expect(() => carrito.addItem({names: 'foo', prices: 33})).toThrow('item must be an object with price and name')
+            expect(() => carrito.addItem({names: 'foo', price: 33})).toThrow('item must be an object with price and name')
+            expect(() => carrito.addItem({name: 'foo', prices: 33})).toThrow('item must be an object with price and name')
+        })
+        it.todo('should not throw an error when adding a bottle item')
     })
     describe('Testing getTotalCheckout', () => {
         it('should return 1.6 after adding 1 nigiri', () => {
