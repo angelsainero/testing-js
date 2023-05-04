@@ -85,4 +85,8 @@ describe('Testing class Carrito', () => {
             expect(carrito.getTotalCheckout()).toEqual(0)
         })
     })
+    describe('Testing removeItem', () => {
+        it.todo('Aplicar TDD para hacer un removeItem')
+        // pista: Deberéis alterar el comportamiento de addItem para generar elementos únicos en la lista
+    })
 })
