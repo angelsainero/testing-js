@@ -67,6 +67,14 @@ describe('Testing class Carrito', () => {
         it('should not throw an error when adding a bottle item', () => {
             expect(() => carrito.addItem(bottleItem)).not.toThrow()
         })
+        it('should check the item before adding it', () => {
+            const spy = jest.spyOn(carrito, 'checkItem')
+            carrito.addItem(bottleItem)
+            expect(spy).toHaveBeenCalled()
+            expect(spy).toHaveBeenCalledTimes(1)
+            expect(spy).toHaveBeenCalledWith(bottleItem)
+            // console.log(spy.mock.calls[0][0])
+        })
     })
     describe('Testing getTotalCheckout', () => {
         it('should return 1.6 after adding 1 nigiri', () => {

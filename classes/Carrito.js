@@ -3,13 +3,16 @@ module.exports = class Carrito {
     getTotalItems() {
         return this.items.length
     }
-    addItem(item) {
+    checkItem(item) {
         if (typeof item !== 'object') {
             throw new Error('item must be an object')
         }
         if (!item.price || !item.name) {
             throw new Error('item must be an object with price and name')
         }
+    }
+    addItem(item) {
+        this.checkItem(item)
         const id = Math.round(Math.random() * 10000000)
         const itemToAdd = {...item, id}
         this.items.push(itemToAdd);
