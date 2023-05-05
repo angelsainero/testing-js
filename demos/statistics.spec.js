@@ -1,4 +1,5 @@
 import {avg, stdDev} from './statistics.js'
+import * as statistics from './statistics.js'
 
 describe("Testing funcion avg", () => {
     it('should return 1 to input array [1,1]', () => {
@@ -26,5 +27,11 @@ describe("Testing funcion stdDev", () => {
     it('should return 0.81649 to [1,2,3]', () => {
         expect(stdDev([1,2,3])).not.toEqual(0.81649)
         expect(stdDev([1,2,3])).toBeCloseTo(0.81649, 4)
+    })
+    // NO PODEMOS HACERLO ASI 🤯!!!
+    it.skip('should call 2 times avg', () => {
+        const spy = jest.spyOn(statistics, 'avg')
+        const result = statistics.stdDev([0,1,2])
+        expect(spy).toHaveBeenCalledTimes(2)
     })
 })
