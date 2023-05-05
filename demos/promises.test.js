@@ -6,8 +6,14 @@ describe('callback style', () => {
             expect(e.message).toMatch(/403/)
             done()
         })
-    })
-    it.todo('should succeed with successfulRequest')
+    }, 10*1000)
+    it('should succeed with successfulRequest', (done) => {
+        expect.assertions(1)
+        successfulRequest().then(response => {
+            expect(response.status).toBe(200)
+            done()
+        })
+    }, 10*1000)
 })
 
 describe('promise style', () => {
@@ -19,7 +25,13 @@ describe('promise style', () => {
             expect(response.status).toEqual(200)
         })
     })
-    it.todo('should return 403 status code with failedRequest')
+    it('should return 403 status code with failedRequest', () => {
+        expect.assertions(1)
+        // imprescindible devolver la promesa
+        return failedRequest().catch(e => {
+            expect(e.response.status).toEqual(403)
+        })
+    })
 })
 
 describe('async/await style', () => {
@@ -32,7 +44,14 @@ describe('async/await style', () => {
 
         }
     })
-    it.todo('should return 403 status code with failedRequest')
+    it('should return 403 status code with failedRequest', async () => {
+        expect.assertions(1)
+        try {
+            await failedRequest();
+        } catch(e){ 
+            expect(e.response.status).toBeGreaterThanOrEqual(403)
+        }
+    })
 })
 
 describe('.resolves/.rejects style', () => {
@@ -40,5 +59,8 @@ describe('.resolves/.rejects style', () => {
         expect.assertions(1)
         return expect(failedRequest).rejects.toThrow(/failed/)
     })
-    it.todo('should return status 200 for successfulRequest')
+    it('should return status 200 for successfulRequest', () => {
+        expect.assertions(1)
+        return expect(successfulRequest()).resolves.toMatchObject({data: {}})
+    })
 })
