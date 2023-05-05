@@ -2,17 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 const userModel = require('../models/users');
-
+const {getAllUsers} = require('../controllers/users.controllers.js')
 /* GET users listing. */
-router.get('/', async function(req, res, next) {
-  try {
-    let users = await userModel.find();
-    res.json({users});
-  } catch(e) {
-    next(e.message);
-  }
-
-});
+router.get('/', getAllUsers);
 
 /* GET user by id. */
 router.get('/:id', async function(req, res, next) {
