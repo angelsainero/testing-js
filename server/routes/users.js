@@ -21,6 +21,7 @@ router.get('/:id', async function(req, res, next) {
 });
 
 /* POST Create a new user */
+// Aplicar TDD en la creación de un endpoint usando tests de integracion
 
 /* PUT Edit a user by id */
 

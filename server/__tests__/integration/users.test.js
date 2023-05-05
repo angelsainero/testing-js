@@ -29,4 +29,8 @@ describe('Testing users endpoints', () => {
             expect(response.body.user).toMatchObject({id: 1}) // podemos pasarle un objeto parcial, no hace falta todo el objeto entero
         })
     })
+
+    describe('POST /users', () => {
+        it.todo('Aplicar TDD')
+    })
 })
